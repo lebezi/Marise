@@ -1,10 +1,9 @@
+import os
 import telebot
 from telebot import types
 from datetime import datetime
 
-# ✅ Token ou deja mete
-BOT_TOKEN = "7738109275:AAE8twsA59WqpizEnYjN_LVToFLH6sWLrhQ"
-
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 bot = telebot.TeleBot(BOT_TOKEN)
 
 @bot.message_handler(commands=['start'])
@@ -25,4 +24,5 @@ def handle_trade(message):
     else:
         bot.reply_to(message, "❓ Tanpri chwazi youn nan bouton yo.")
 
+print("Bot is running...")
 bot.infinity_polling()
